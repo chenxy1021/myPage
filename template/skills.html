@@ -1,0 +1,61 @@
+{% extends 'base/base_main.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area bg-grey">
+        <div class="container">
+            <div class="cr-breadcrumb">
+                <h2>技能</h2>
+                <ul>
+                    <li><a href={% url 'p:index' %}>主页</a></li>
+                    <li>技能</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--// Breadcrumb Area -->
+    <!-- Page Conttent -->
+    <main class="page-content">
+
+        <!-- Service Area -->
+        <div class="cr-section services-area section-padding-lg bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="section-title text-center">
+                            <h2>技能</h2>
+                            <p>学然后知不足，教然后知困。知不足，然后能自反也；知困，然后能自强也。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% if mySkills %}
+                        {% for mySkill in mySkills %}
+                            <!-- Single Service -->
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="service text-center">
+                                    <h5>{{ mySkill.s_name }}</h5>
+                                    <p>{{ mySkill.s_describe }}</p>
+                                </div>
+                            </div>
+                            <!--// Single Service -->
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="service text-center">
+                                <h5>暂无</h5>
+                                <p>暂无</p>
+                            </div>
+                        </div>
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </div>
+        <!--// Service Area -->
+
+    </main>
+    <!--// Page Conttent -->
+{% endblock %}

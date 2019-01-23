@@ -1,0 +1,65 @@
+{% extends 'base/base_main.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area bg-grey">
+        <div class="container">
+            <div class="cr-breadcrumb">
+                <h2>项目</h2>
+                <ul>
+                    <li><a href="{% url 'p:index' %}">主页</a></li>
+                    <li>项目</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--// Breadcrumb Area -->
+
+    <!-- Page Conttent -->
+    <main class="page-content">
+
+        <!-- Portfolios Ara -->
+        <div class="cr-section portfolios-area section-padding-lg bg-white">
+            <div class="container">
+
+                <div class="section-title text-center">
+                    <h2>全部项目</h2>
+                    <p>细节始于计划，计划同时也是一种细节，是很重要的细节。</p>
+                </div>
+
+                <div class="row portfolios-wrapper portfolios-zoom-button-holder">
+                    {% if myProjects %}
+                        {% for myProject in myProjects %}
+                            <!-- Single Portfolio -->
+                            <div class="col-lg-4 col-md-6 col-12 portfolio-item portfolio-filter-graphic portfolio-filter-design">
+                                <div class="portfolio">
+                                    <div class="portfolio-image">
+                                        <img src="{% static '' %}{{ myProject.p_icon }}" alt="{{ myProject.p_name }}">
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <a href="{% static '' %}{{ myProject.p_icon }}"
+                                           class="portfolio-zoom-button"></a>
+                                        <h5>
+                                            <a href="{% url 'p:projectDetails' myProject.id %}">{{ myProject.p_name }}</a>
+                                        </h5>
+                                        <h6>
+                                            <a href="{% url 'p:projectDetails' myProject.id %}">{{ myProject.p_describe }}</a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// Single Portfolio -->
+                        {% endfor %}
+                    {% else %}
+                        暂无
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+        <!--// Portfolios Ara -->
+
+    </main>
+    <!--// Page Conttent -->
+{% endblock %}

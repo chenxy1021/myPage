@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block header %}
+    <!-- Header -->
+    <header class="header sticky-header fixed-header">
+        <div class="container">
+            <div class="header-inner d-none d-lg-flex">
+                <div class="header-logo">
+                    <a href="{% url 'p:index' %}">
+                        <img src="{% static 'img/logo/logo-dark.png' %}" alt="logo">
+                    </a>
+                </div>
+                <div class="header-navigation">
+                    <button class="header-navigation-trigger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <nav class="main-navigation">
+                        <ul>
+                            <li>
+                                <a href="{% url 'p:index' %}">主页</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'p:projectHome' %}">项目</a>
+                            </li>
+                            <li><a href="{% url 'p:blogHome' %}?page=1">博客</a></li>
+                            <li><a href="{% url 'p:skills' %}">技能</a></li>
+
+                            <li><a href="{% url 'p:contact' %}">联系我</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="mobile-menu-wrapper d-block d-lg-none">
+                <div class="mobile-menu clearfix">
+                    <a href="{% url 'p:index' %}" class="mobile-logo">
+                        <img src="{% static 'img/logo/logo-dark.png' %}" alt="mobile logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block footer %}
+    <!-- Footer Area -->
+    <footer class="footer-area bg-white">
+        <div class="container">
+            <ul class="footer-inner">
+                <li>我年华虚度空有一身疲倦 <br> </li>
+                <li>微信/手机:18507027787</li>
+                <li><a href="mailto://chenxingyu1021@gmail.com">邮箱:chenxingyu1021@gmail.com</a></li>
+            </ul>
+        </div>
+    </footer>
+    <!--// Footer Area -->
+{% endblock %}

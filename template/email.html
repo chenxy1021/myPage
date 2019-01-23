@@ -1,0 +1,29 @@
+{% extends 'base/base_main.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area bg-grey">
+        <div class="container">
+            <div class="cr-breadcrumb">
+                <h2>邮件</h2>
+                <ul>
+                    <li><a href="{% url 'p:index' %}">主页</a></li>
+                    <li>发送邮件</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--// Breadcrumb Area -->
+
+    <!-- Page Conttent -->
+    <main class="page-content">
+    <div>
+        <div>
+            <h1 style="text-align: center;margin: 0 auto">邮件发送成功,将在第一时间回复您</h1>
+        </div>
+    </div>
+
+    </main>
+    <!--// Page Conttent -->
+{% endblock %}

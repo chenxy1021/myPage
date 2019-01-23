@@ -1,0 +1,70 @@
+{% extends 'base/base_main.html' %}
+{% load static %}
+
+{% block content %}
+            <!-- Breadcrumb Area -->
+        <div class="breadcrumb-area bg-grey">
+            <div class="container">
+                <div class="cr-breadcrumb">
+                    <h2>项目详情</h2>
+                    <ul>
+                        <li><a href="{% url 'p:index' %}">主页</a></li>
+                        <li><a href="{% url 'p:projectHome' %}">项目</a></li>
+                        <li>项目:{{ project.p_name }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Breadcrumb Area -->
+
+		<!-- Page Conttent -->
+		<main class="page-content">
+
+            <!-- Portfolio Details Area -->
+            <div class="cr-section portfolio-details-area section-padding-lg bg-white">
+                <div class="container">
+                    <div class="portfolio-details-images">
+                        <img src="{% static '' %}{{ project.p_icon }}" alt="Portfolio Details Image">
+                        {% for projectImage in projectImages %}
+                            <img src="{% static '' %}{{ projectImage.i_image }}">
+                            <p style="text-align: center"><b>{{ projectImage.i_describe }}</b></p>
+                        {% endfor %}
+
+                    </div>
+                    <div class="row section-padding-top-sm">
+                        <div class="col-lg-4">
+                            <div class="portfolio-details-meta">
+                                <ul>
+                                    <li><i class="fa fa-user"></i><span>项目人员:</span>{{ project.p_person }}</li>
+                                    <li><i class="fa fa-calendar"></i><span>项目时间:</span>{{ project.p_datetime }}</li>
+                                    <li><i class="fa fa-coffee"></i><span>技术:</span>{{ project.p_skills }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="portfolio-details-info">
+                                <h3 class="small-title-fullwidth"><span>项目信息</span></h3>
+                                <h5 class="portfolio-title">项目名称: {{ project.p_name }}</h5>
+                                <h5 class="portfolio-title">项目描述: </h5>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ project.p_describe }}</p>
+
+{#                                <div class="post-share">#}
+{#                                    <h6>分类:</h6>#}
+{#                                    <ul>#}
+{#                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>#}
+{#                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>#}
+{#                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>#}
+{#                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>#}
+{#                                        <li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Portfolio Details Area -->
+
+		</main>
+		<!--// Page Conttent -->
+{% endblock %}

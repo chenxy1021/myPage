@@ -1,0 +1,160 @@
+{% extends 'base/base_main.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Area -->
+    <div class="hero-area bg-white">
+        <div class="container">
+            <div class="hero-area-inner">
+                <div class="hero-area-text">
+                    <h1>
+                        HELLO, <br>
+                        I AM Chenxingyu
+                    </h1>
+                    <h5>一碗酸辣汤，耳闻口讲的，总不如亲自呷一口的明白。</h5>
+{#                    <a href="{% url 'p:about' %}" class="readmore">关于我们</a>#}
+                </div>
+                <div class="hero-area-image">
+                    <img src="{% static 'img/slider/timg.jpg' %}" alt="man mask">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Hero Area -->
+
+    <!-- Page Conttent -->
+    <main class="page-content">
+
+        <!-- Portfolios Ara -->
+
+        <div class="cr-section portfolios-area section-padding-lg bg-white">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>项目</h2>
+                    <p>细节始于计划，计划同时也是一种细节，是很重要的细节。</p>
+                </div>
+
+                <div class="row portfolios-wrapper portfolios-zoom-button-holder">
+                    {% if myProjects %}
+                        {% for myProject in myProjects %}
+                            <!-- Single Portfolio -->
+                            <div class="col-lg-4 col-md-6 col-12 portfolio-item portfolio-filter-graphic portfolio-filter-design">
+                                <div class="portfolio">
+                                    <div class="portfolio-image">
+                                        <img src="{% static '' %}{{ myProject.p_icon }}" alt="{{ myProject.p_name }}">
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <a href="{% static '' %}{{ myProject.p_icon }}"
+                                           class="portfolio-zoom-button"></a>
+                                        <h5><a href="{% url 'p:projectDetails' myProject.id %}">{{ myProject.p_name }}</a></h5>
+                                        <h6><a href="{% url 'p:projectDetails' myProject.id %}">{{ myProject.p_describe }}</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// Single Portfolio -->
+                        {% endfor %}
+                    {% else %}
+                        暂无
+                    {% endif %}
+
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center mt-5">
+                        <a href="{% url 'p:projectHome' %}" class="button" data-content="查看更多">
+                            <span>查看更多</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// Portfolios Ara -->
+
+        <!-- Service Area -->
+        <div class="cr-section services-area section-padding-bottom-lg bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="section-title text-center">
+                            <h2>技能</h2>
+                            <p>学然后知不足，教然后知困。知不足，然后能自反也；知困，然后能自强也。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% if mySkills %}
+                        {% for mySkill in mySkills %}
+                            <!-- Single Service -->
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="service text-center">
+                                    <h5>{{ mySkill.s_name }}</h5>
+                                    <p>{{ mySkill.s_describe }}</p>
+                                </div>
+                            </div>
+                            <!--// Single Service -->
+                        {% endfor %}
+                    {% else %}
+                        <!-- Single Service -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="service text-center">
+                                <h5>暂无</h5>
+                                <p>暂无</p>
+                            </div>
+                        </div>
+                        <!--// Single Service -->
+                    {% endif %}
+
+                </div>
+            </div>
+            <!--// Service Area -->
+            <div class="row">
+                <div class="col-12 text-center mt-5">
+                    <a href="{% url 'p:skills' %}" class="button" data-content="查看更多">
+                        <span>查看更多</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cr-section portfolios-area section-padding-lg bg-white">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>博客</h2>
+                    <p>成功需要我们数十年如一日的积累,执着的信念,坚持不懈的努力,最终可以帮助有心人滴水穿石。</p>
+                </div>
+
+                <div class="row portfolios-wrapper portfolios-zoom-button-holder">
+                    {% if myBlogs %}
+                        {% for myBlog in myBlogs %}
+                            <!-- Single Portfolio -->
+                            <div class="col-lg-4 col-md-6 col-12 portfolio-item portfolio-filter-graphic portfolio-filter-design">
+                                <div class="portfolio">
+                                    <div class="portfolio-image">
+                                        <img src="{% static '' %}{{ myBlog.b_img }}" alt="{{ myBlog.b_title }}">
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <a href="{% static '' %}{{ myBlog.b_img }}"
+                                           class="portfolio-zoom-button"></a>
+                                        <h5><a href="{% url 'p:blogDetails' myBlog.id %}">{{ myBlog.b_title }}</a></h5>
+                                        <h6><a href="{% url 'p:blogDetails' myBlog.id %}">{{ myBlog.b_excerpt }}</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// Single Portfolio -->
+                        {% endfor %}
+                    {% else %}
+                        暂无
+                    {% endif %}
+
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center mt-5">
+                        <a href="{% url 'p:blogHome' %}?page=1" class="button" data-content="查看更多">
+                            <span>查看更多</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
